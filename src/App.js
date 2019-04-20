@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-
+import {Button} from 'antd-mobile';
 class App extends Component {
   render() {
     return (
-      <div>
-        初始化
-      </div>
+      <Button type='primary'>a</Button>
     );
   }
 }
