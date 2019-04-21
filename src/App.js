@@ -12,6 +12,7 @@ const mapDispatchToProps = { addGun, removeGun, addGunAsync }
 )
 class App extends Component {
     render() {
+        console.log(this.props);
         const { num, addGun, removeGun, addGunAsync } = this.props;
         return (
             <Fragment>
