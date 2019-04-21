@@ -1,8 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import { addGun, removeGun, addGunAsync } from './reducer';
+const mapStatetoProps = (state) => (
+    {
+        num: state
+    }
+);
+const mapDispatchToProps = { addGun, removeGun, addGunAsync }
+@connect(
+    mapStatetoProps, mapDispatchToProps
+)
 class App extends Component {
-
     render() {
         const { num, addGun, removeGun, addGunAsync } = this.props;
         return (
@@ -15,13 +23,8 @@ class App extends Component {
         )
     }
 }
-const mapStatetoProps = (state) => (
-    {
-        num: state
-    }
-);
-const mapDispatchToProps = { addGun, removeGun, addGunAsync }
+
 // const mapDispatchToProps = (dispatch) => {
 //     return { addGun, removeGun, addGunAsync }
 // }
-export default connect(mapStatetoProps, mapDispatchToProps)(App);
+export default App;
