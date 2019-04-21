@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
 import App from './App';
-import { reducer, addGun, removeGun, addGunAsync } from './reducer';
- 
+import { reducer } from './reducer';
+
 // 按使用compose把中间件与redux调试工具链接
 const store = createStore(reducer, compose(
     applyMiddleware(thunk),
@@ -13,14 +14,9 @@ const store = createStore(reducer, compose(
     // window.devToolsExtensino ? window.devToolsExtensino() : f=>f
 ));
 
-function aaa () {
-    ReactDOM.render(<App
-        store={store}
-        addGun={addGun}
-        removeGun={removeGun}
-        addGunAsync= {addGunAsync}
-    />, document.getElementById('root'));
-}
-
-aaa();
-store.subscribe(aaa);
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);

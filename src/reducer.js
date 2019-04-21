@@ -13,6 +13,7 @@ export const reducer = (state = 0, action) => {
 };
 
 
+
 export const addGun = () => {
     return {type: ADD_GUN}
 };
